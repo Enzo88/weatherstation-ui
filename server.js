@@ -16,8 +16,7 @@ app.get('/', function(req,res) {
 res.sendFile(path.join(__dirname,'/dist/Weather-ui/index.html'));
 });
 
-app.post('/api/sendWeatherData/:deviceId', (req, res) => {
-  let currentWeather = new WeatherData()  
+app.post('/api/sendWeatherData/:deviceId', (req, res) => {  
   return res.send(request.body);
 });
 
