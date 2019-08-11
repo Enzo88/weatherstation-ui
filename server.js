@@ -1,15 +1,14 @@
 //Install express server
 
-const WeatherData = require('./WeatherData.js');
 const express = require('express');
-const bodyParser = require('body-parser');
+//const bodyParser = require('body-parser');
 const path = require('path');
 
 const app = express();
 
 // Serve only the static files form the dist directory
 app.use(express.static('./dist/Weather-ui'));
-app.use(bodyParser.json());
+//app.use(bodyParser.json());
 
 app.get('/', function(req,res) {
     
