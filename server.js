@@ -1,7 +1,6 @@
 //Install express server
-'use strict';
 
-import WeatherData from "./WeatherData.js";
+const WeatherData = require('./WeatherData.js');
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');

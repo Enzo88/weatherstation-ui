@@ -4,7 +4,7 @@
   "author": "Vincenzo Pimpinella <vincenzo.pimpinella@gmail.com>",
   "scripts": {
     "ng": "ng",
-    "start": "node -r esm server.js",
+    "start": "node server.js",
     "start-dev": "ng serve",
     "build": "ng build",
     "test": "ng test",
@@ -23,7 +23,6 @@
     "@angular/platform-browser-dynamic": "^8.2.1",
     "@angular/router": "^8.2.1",
     "core-js": "^2.6.9",
-    "esm": "^3.2.25",
     "express": "^4.17.1",
     "rxjs": "^6.5.2",
     "zone.js": "^0.8.29"
