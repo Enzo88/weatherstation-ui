@@ -6,6 +6,8 @@ const WeatherData = require('./WeatherData.js')
 const WeatherDataDAO = require('./WeatherDataDAO.js')
 const Pool = require('pg').Pool
 
+process.env.TZ = 'Europe/Rome' 
+
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: true

@@ -6,7 +6,8 @@ class WeatherDataDAO {
     }
 
     saveData(currentWeather, device_id) {
-        let currentDate = new Date().toISOString();
+        let data = new Date();
+        let currentDate = data.toLocaleDateString()+" "+data.toLocaleTimeString();
         return new Promise((resolve, reject) => {
             this.pool.query('UPDATE current_temperature set temperature = $1, humidity = $2, pressure = $3, updateDate = $5 where device_id = $4', 
             [currentWeather.temperature, currentWeather.humidity, currentWeather.pressure, device_id, currentDate], (error, results) => {
