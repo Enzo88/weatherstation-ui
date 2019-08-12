@@ -7,7 +7,7 @@ const WeatherDataDAO = require('./WeatherDataDAO.js')
 const Pool = require('pg').Pool
 
 const pool = new Pool({
-  connectionString: 'postgres://dvspyelraakmlg:9144b65a891a8505d918bfa9311eb8d38a3ed305eb4ff96570ea818fa6942952@ec2-54-221-238-248.compute-1.amazonaws.com:5432/d2nspcfv9j9f24',//process.env.DATABASE_URL,
+  connectionString: process.env.DATABASE_URL,
   ssl: true
 })
 
