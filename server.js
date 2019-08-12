@@ -7,7 +7,7 @@ const WeatherDataDAO = require('./WeatherDataDAO.js')
 const Pool = require('pg').Pool
 
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
+  connectionString: 'postgres://dvspyelraakmlg:9144b65a891a8505d918bfa9311eb8d38a3ed305eb4ff96570ea818fa6942952@ec2-54-221-238-248.compute-1.amazonaws.com:5432/d2nspcfv9j9f24',//process.env.DATABASE_URL,
   ssl: true
 })
 
@@ -26,8 +26,9 @@ app.use(express.json())
 app.post('/api/sendWeatherData/:deviceId', (req, res) => {  
   let currentWeather = WeatherData.fromJson(req.body);
   let weatherDao = new WeatherDataDAO(pool);
-  weatherDao.saveData(currentWeather, req.params.deviceId);
-  return res.json(currentWeather);
+  weatherDao.saveData(currentWeather, req.params.deviceId).then((success) => {
+    return res.json(currentWeather);
+  });
 });
 
 app.get('/api/getWeatherState/:deviceId', (req, res) => {
@@ -35,15 +36,24 @@ app.get('/api/getWeatherState/:deviceId', (req, res) => {
 });
 
 app.get('/api/getCurrentTemp/:deviceId', (req, res) => {
-  return res.json({temp: 10});
+  let weatherDao = new WeatherDataDAO(pool);
+  weatherDao.getCurrentTemp(req.params.deviceId).then((success) => {
+    return res.json({temp: success})
+  });
 });
 
 app.get('/api/getCurrentHum/:deviceId', (req, res) => {
-  return res.json({hum: 10});
+  let weatherDao = new WeatherDataDAO(pool);
+  weatherDao.getCurrentHum(req.params.deviceId).then((success) => {
+    return res.json({hum: success})
+  });  
 });
 
 app.get('/api/getCurrentPressure/:deviceId', (req, res) => {
-  return res.json({pressure: 10});
+  let weatherDao = new WeatherDataDAO(pool);
+  weatherDao.getCurrentPressure(req.params.deviceId).then((success) => {
+    return res.json({pressure: success})
+  });
 });
 
 app.get('/api/getMaxTemp/:deviceId', (req, res) => {
