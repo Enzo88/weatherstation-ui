@@ -57,7 +57,7 @@ export class WeatherCardComponentHome implements OnInit, OnDestroy {
   }
 
   openDetails() {
-    this.router.navigateByUrl('/details/'+this.city);
+    //this.router.navigateByUrl('/details/'+this.city);
   }
 
 }
