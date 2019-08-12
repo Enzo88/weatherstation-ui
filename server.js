@@ -44,7 +44,7 @@ app.get('/api/getCurrentTemp/:deviceId', (req, res) => {
 
 app.get('/api/getLastUpdate/:deviceId', (req, res) => {
   let weatherDao = new WeatherDataDAO(pool);
-  weatherDao.getCurrentTemp(req.params.deviceId).then((success) => {
+  weatherDao.getLastUpdate(req.params.deviceId).then((success) => {
     return res.json({updateDate: success})
   });
 });
