@@ -7,8 +7,10 @@ import {AppComponent} from './app.component';
 import {HomeComponent} from './pages/home/home.component';
 import {DetailsComponent} from './pages/details/details.component';
 import {WeatherService} from './services/weather/weather.service';
+import {WeatherServiceHome} from './services/weather-home/weather-home.service';
 import {HttpClientModule} from '@angular/common/http';
 import {WeatherCardComponent} from './ui/weather-card/weather-card.component';
+import {WeatherCardComponentHome} from './ui/weather-card-home/weather-card-home.component';
 import {UiService} from './services/ui/ui.service';
 
 @NgModule({
@@ -16,7 +18,8 @@ import {UiService} from './services/ui/ui.service';
     AppComponent,
     HomeComponent,
     DetailsComponent,
-    WeatherCardComponent
+    WeatherCardComponent,
+    WeatherCardComponentHome
   ],
   imports: [
     BrowserModule,
@@ -25,6 +28,7 @@ import {UiService} from './services/ui/ui.service';
   ],
   providers: [
     WeatherService,
+    WeatherServiceHome,
     UiService
   ],
   bootstrap: [AppComponent]

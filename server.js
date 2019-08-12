@@ -30,8 +30,28 @@ app.post('/api/sendWeatherData/:deviceId', (req, res) => {
   return res.json(currentWeather);
 });
 
-app.get('/api/getCurrentWeather/:deviceId', (req, res) => {
-    return res.send('Received a POST HTTP method'+req.params.deviceId);
+app.get('/api/getWeatherState/:deviceId', (req, res) => {
+  return res.json({state: "Sunny"});
+});
+
+app.get('/api/getCurrentTemp/:deviceId', (req, res) => {
+  return res.json({temp: 10});
+});
+
+app.get('/api/getCurrentHum/:deviceId', (req, res) => {
+  return res.json({hum: 10});
+});
+
+app.get('/api/getCurrentPressure/:deviceId', (req, res) => {
+  return res.json({pressure: 10});
+});
+
+app.get('/api/getMaxTemp/:deviceId', (req, res) => {
+  return res.json({maxTemp: 10});
+});
+
+app.get('/api/getMinTemp/:deviceId', (req, res) => {
+  return res.json({minTemp: 10});
 });
 
 // Start the app by listening on the default Heroku port
