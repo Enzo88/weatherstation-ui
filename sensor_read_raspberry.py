@@ -20,13 +20,14 @@ bme280.overscan_temperature = adafruit_bme280.OVERSCAN_X2
 # The sensor will need a moment to gather initial readings
 time.sleep(1)
 
-url = 'http://weather-station-ui.herokuapp.com/api/sendWeatherData/1'
+url = 'https://weather-station-ui.herokuapp.com/api/sendWeatherData/1'
 
 while True:
-    print("\nTemperature: %0.1f C" % bme280.temperature)
-    print("Humidity: %0.1f %%" % bme280.humidity)
-    print("Pressure: %0.1f hPa" % bme280.pressure)
-    print("Altitude = %0.2f meters" % bme280.altitude)
+    #print("\nTemperature: %0.1f C" % bme280.temperature)
+    #print("Humidity: %0.1f %%" % bme280.humidity)
+    #print("Pressure: %0.1f hPa" % bme280.pressure)
+    #print("Altitude = %0.2f meters" % bme280.altitude)
     data = {"temperature": bme280.temperature, "humidity": bme280.humidity,"pressure": bme280.pressure}
     response = requests.post(url, json=data)
+    #print(response)
     time.sleep(60)
