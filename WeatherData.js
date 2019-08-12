@@ -5,3 +5,5 @@ class WeatherData {
         this.pressure = pressure;
     }
 }
+
+module.exports = WeatherData;
