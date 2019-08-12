@@ -11,7 +11,7 @@ export class WeatherServiceHome {
   getWeatherState(device_id: number): Subject<string> {
     const dataSubject = new Subject<string>();
     this.http.get(
-      `http://localhost/api/getWeatherState/${device_id}`)
+      `http://weather-station-ui.herokuapp.com/api/getWeatherState/${device_id}`)
       .subscribe((data) => {
         dataSubject.next(data['state']);
       });
@@ -21,7 +21,7 @@ export class WeatherServiceHome {
   getCurrentTemp(device_id: number): Subject<number> {
     const dataSubject = new Subject<number>();
     this.http.get(
-      `http://localhost/api/getCurrentTemp/${device_id}`)
+      `http://weather-station-ui.herokuapp.com/api/getCurrentTemp/${device_id}`)
       .subscribe((data) => {
         dataSubject.next(data['temp']);
       });
@@ -32,7 +32,7 @@ export class WeatherServiceHome {
   getCurrentHum(device_id: number): Subject<number> {
     const dataSubject = new Subject<number>();
     this.http.get(
-      `http://localhost/api/getCurrentHum/${device_id}`)
+      `http://weather-station-ui.herokuapp.com/api/getCurrentHum/${device_id}`)
       .subscribe((data) => {
         dataSubject.next(data['hum']);
       });
@@ -43,7 +43,7 @@ export class WeatherServiceHome {
   getCurrentPressure(device_id: number): Subject<number> {    
     const dataSubject = new Subject<number>();
     this.http.get(
-      `http://localhost/api/getCurrentPressure/${device_id}`)
+      `http://weather-station-ui.herokuapp.com/api/getCurrentPressure/${device_id}`)
       .subscribe((data) => {
         dataSubject.next(data['pressure']);
       });
@@ -54,7 +54,7 @@ export class WeatherServiceHome {
   getMaxTemp(device_id: number): Subject<number> {    
     const dataSubject = new Subject<number>();
     this.http.get(
-      `http://localhost/api/getMaxTemp/${device_id}`)
+      `http://weather-station-ui.herokuapp.com/api/getMaxTemp/${device_id}`)
       .subscribe((data) => {
         dataSubject.next(data['maxTemp']);
       });
@@ -64,7 +64,7 @@ export class WeatherServiceHome {
   getMinTemp(device_id: number): Subject<number> {    
     const dataSubject = new Subject<number>();
     this.http.get(
-      `http://localhost/api/getMinTemp/${device_id}`)
+      `http://weather-station-ui.herokuapp.com/api/getMinTemp/${device_id}`)
       .subscribe((data) => {
         dataSubject.next(data['minTemp']);
       });
