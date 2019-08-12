@@ -4,6 +4,10 @@ class WeatherData {
         this.humidity = humidity;
         this.pressure = pressure;
     }
+
+    static fromJson({temperature, humidity, pressure}) {                
+        return new WeatherData(temperature, humidity, pressure);
+    }
 }
 
 module.exports = WeatherData;
