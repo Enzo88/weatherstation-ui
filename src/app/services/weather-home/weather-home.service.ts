@@ -70,4 +70,14 @@ export class WeatherServiceHome {
       });
     return dataSubject;
   }
+
+  getLastUpdate(device_id: number): Subject<string> {
+    const dataSubject = new Subject<string>();
+    this.http.get(
+      `https://weather-station-ui.herokuapp.com/api/getLastUpdate/${device_id}`)
+      .subscribe((data) => {
+        dataSubject.next(data['updateDate']);
+      });
+    return dataSubject;
+  }
 }

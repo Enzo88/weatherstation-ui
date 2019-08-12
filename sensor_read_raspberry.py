@@ -28,6 +28,9 @@ while True:
     #print("Pressure: %0.1f hPa" % bme280.pressure)
     #print("Altitude = %0.2f meters" % bme280.altitude)
     data = {"temperature": bme280.temperature, "humidity": bme280.humidity,"pressure": bme280.pressure}
-    response = requests.post(url, json=data)
+    try:
+        response = requests.post(url, json=data)
+    except:
+        pass
     #print(response)
     time.sleep(60)

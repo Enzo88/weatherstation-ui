@@ -16,6 +16,7 @@ export class WeatherCardComponentHome implements OnInit, OnDestroy {
   currentTemp: number;
   currentHum: number;
   pressure: number;
+  updateDate: string;
   maxTemp: number;
   minTemp: number;
   darkMode: boolean;
@@ -49,6 +50,9 @@ export class WeatherCardComponentHome implements OnInit, OnDestroy {
     });
     this.weather.getCurrentPressure(this.device_id).subscribe((data: number) => {
       this.pressure = data;
+    });
+    this.weather.getLastUpdate(this.device_id).subscribe((data: string) => {
+      this.updateDate = data;
     });
   }
 

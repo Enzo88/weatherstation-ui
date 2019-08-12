@@ -31,7 +31,7 @@ app.post('/api/sendWeatherData/:deviceId', (req, res) => {
   });
 });
 
-app.get('/api/getWeatherState/:deviceId', (req, res) => {
+app.get('/api/getWeatherState/:deviceId', (req, res) => {  
   return res.json({state: "Sunny"});
 });
 
@@ -39,6 +39,13 @@ app.get('/api/getCurrentTemp/:deviceId', (req, res) => {
   let weatherDao = new WeatherDataDAO(pool);
   weatherDao.getCurrentTemp(req.params.deviceId).then((success) => {
     return res.json({temp: success})
+  });
+});
+
+app.get('/api/getLastUpdate/:deviceId', (req, res) => {
+  let weatherDao = new WeatherDataDAO(pool);
+  weatherDao.getCurrentTemp(req.params.deviceId).then((success) => {
+    return res.json({updateDate: success})
   });
 });
 
